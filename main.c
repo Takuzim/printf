@@ -1,5 +1,6 @@
 #include <stdarg.h>
 #include <stdio.h>
+#include <string.h>  // Add this line to include string.h
 #include "main.h"
 
 int _printf(const char *format, ...)
@@ -17,7 +18,7 @@ int _printf(const char *format, ...)
             const char *str = va_arg(args, const char *);
 
             // Print the reversed string
-            for (int i = 0; str[i] != '\0'; i++)
+            for (int i = 0; i < strlen(str); i++)  // Use < instead of !=
             {
                 putchar(str[strlen(str) - 1 - i]);
                 len++;
@@ -49,5 +50,7 @@ int main(void)
     printf("Unknown:[%s]\n", "hello");
 
     // ... rest of the code ...
+
+    return 0;  // Add a return statement to indicate success
 }
 
